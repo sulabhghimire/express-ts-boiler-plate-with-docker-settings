@@ -1,0 +1,62 @@
+a. npm init -y
+b. touch index.js
+c. To use ES6 import add in package.json
+    a. "type" : "module" 
+d. Install TypeScript
+    a. npm install typescript --save-dev
+e. Add typescript compiler to build the application
+    a. Under package.json
+    b. Under scripts
+    c. add "build" : "tsc"
+f. Create src directory
+g. Change name from index.js to index.ts and move it to src directory
+h. While using node built-in we will get type not found so install
+    a. npm i -D @types/node
+i. Create tsconfig using npx tsc --init
+j. Create tsconfig.json file
+    {
+        "compilerOptions": {
+            "target": "es2020",
+            "module": "node",
+            "lib": ["es2020"],
+            "rootDir": "./src",
+            "outDir": "./build",
+            "esModuleInterop": true,
+            "strict": true,
+            "noImplicitAny": true,
+            "strictNullChecks": true,
+            "strictFunctionTypes": true,
+            "strictPropertyInitialization": true,
+            "noUnusedLocals": true,
+            "noUnusedParameters": true,
+            "noImplicitReturns": true,
+            "noFallthroughCasesInSwitch": true,
+            "forceConsistentCasingInFileNames": true,
+            "moduleResolution": "node",
+            "baseUrl": ".",
+            "paths": {
+              "*": ["node_modules/*", "src/types/*"]
+            },
+            "allowSyntheticDefaultImports": true,
+            "skipLibCheck": true,
+            "resolveJsonModule": true,
+            "isolatedModules": true,
+            "declaration": true,
+            "sourceMap": true
+        },
+        "include": ["src/**/*"],
+        "exclude": ["node_modules", "**/*.test.ts"]
+    }
+    a. compilerOptions
+        a. module defines module system for program
+            i. For the program with type: commonjs keep it to commonjs
+            ii. For the program with type: module use NodeNext
+        b. moduleResolution defines how TypeScript will find the code we import.. set it to NodeNext
+        c. target flavour of js the code will compile to : Set ot ES2022
+        d. sourceMap option will map the compiled js back to ts that will help with debugging
+        e. outDir: dist, folder that contains final js code after compilation
+    b. include: where to find out code
+k. npm install express
+l. npm install @types/express --save-dev
+m. npm install ts-node-dev --save-dev : like nodemon fro ts
+n. Goto package.json and setup more scripts

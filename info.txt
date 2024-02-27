@@ -1,0 +1,87 @@
+A. compilerOptions 
+    a. target :  when we transpile code from ts to js what version of js should it produce
+        - esnext : means current most current version of js
+    b. module : what sort of module output should we produce
+        - if using bundle output esnext
+        - if node then commonjs or NodeNext
+    c. allowUnreachableCode : "true" or "false"
+        - true : unreachable code is ignored
+        - false: raise compiler error about un-reachable code
+    d. allowUnusedLabels
+        - true : unused labels are ignored
+        - false : raises compiler errors about un-used labels
+    e. alwaysStrict:
+        - true : Ensures that your files are parsed in ECMAScript strict mode, and emit "use strict" for each source file
+    f. exactOptionalPropertyTypes
+        - can be used only when strictNullChecks is true
+        - if we have interface like
+            interface UserDefaults {
+                name : string;
+                colorTheme?: "dark"|"light"
+            }
+            const settings: UserDefaults = {
+                name : "Sulabh"
+            }
+            settings.colorTheme = "dark";
+            settings.colorTheme = "light";
+            settings.colorTheme = undefined; //not allowed when exactOptionalPropertyTypes is true
+    g. noFallthroughCasesInSwitch
+        - if true and we forget any break/return in switch case it will give error
+    h. noImplicitAny
+        - if true raises and errors on expression and declaration with implied type "any"
+    i. noImplicitOverride: true
+        - if class B extends class A and if we want to override the function of class A i.e. getAll() in class B then we need
+            to add override before the function declaration in class B
+    j. noImplicitReturns:
+        - if true then returns error on function returns that are implicitly any
+    k. noImplicitThis: true
+        - 
+    l. noPropertyAccessFromIndexSignature: true
+        - can't access property though . of object 
+        - need to use ['']
+    m. noUncheckedIndexedAccess
+        - unknown properties are covered by this index signature
+        - Eg
+            interface EnvironmentVars = {
+                name: string;
+                [propName:string]: string;
+            }
+            declare const env:EnvironmentVars;
+            const sysName = env.name;
+            const nodeEnv1 = env['NODE_ENV']
+        - If true then type of nodeEnv1 will be string | undefined as we don't know [propName:string]: string covers it or not
+        - If false then type of nodeEnv1 will be string
+    n. noUnusedLocals
+        - If true reports errors on unused local variables
+    o. noUnusedParameters
+        - If true then reports unused parameters in functions
+    p. strict
+        - if true then following properties will be set to true
+            - alwaysStrict
+            - strictNullChecks
+            - strictBlindCallApply
+            - strictFunctionTypes
+            - strictPropertyInitialization
+            - noImplicitAny
+            - noImplicitThis
+            - useUnknownInCatchVaria
+    q. strictBlindCallApply
+        - when set, TS will check that the built-in methods of function call, blind and apply are invoked with correct 
+            arguments for underlying function
+    r. strictFunctionTypes
+        - Example
+            function fn5(x: string) {
+                console.log(x);
+            }
+            type StringOrNum = (ns: string) => void;
+            let func1: StringOrNum = fn5;
+        - if true func1 will give error and if false no error
+    s. strictNullChecks
+        - if true shows that the property can be null or undefined in some cases
+    t. strictPropertyInitialization
+        - need to initialize the values in constructors
+    u. useUnknownInCatchVariables
+        - change the type to unknown from any in try and catch
+    v. modules
+
+        

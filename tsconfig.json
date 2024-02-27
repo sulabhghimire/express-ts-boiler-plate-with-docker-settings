@@ -1,0 +1,85 @@
+// tsconfig.json
+
+{
+  "compilerOptions": {
+      "target": "ES2016",
+
+      "module": "commonjs", 
+
+      "lib": ["es2020"],
+
+      // Specifies the root directory of input files. All source files are considered to be under this root directory.
+      "rootDir": "./src",
+
+      // Specifies the output directory for compiled JavaScript files.
+      "outDir": "./build",
+
+      // Enables compatibility with ES6 modules and CommonJS interop.
+      "esModuleInterop": true,
+
+      // Enables strict mode, which includes stricter checking for various TypeScript features.
+      "strict": true,
+
+      // Raises an error on expressions and declarations with an implied 'any' type.
+      "noImplicitAny": true,
+
+      // Enables strict null checks.
+      "strictNullChecks": true,
+
+      // Enables strict checking of function types.
+      "strictFunctionTypes": true,
+
+      // Enables strict checking of property initialization in classes.
+      "strictPropertyInitialization": true,
+
+      // Raises an error when a local variable is unused.
+      "noUnusedLocals": true,
+
+      // Raises an error when a parameter is declared but unused.
+      "noUnusedParameters": true,
+
+      // Raises an error on function return types that are implicitly any.
+      "noImplicitReturns": true,
+
+      // Raises an error for fall-through cases in switch statements.
+      "noFallthroughCasesInSwitch": true,
+
+      // Forces consistent casing in file names.
+      "forceConsistentCasingInFileNames": true,
+
+      // Specifies how TypeScript will resolve modules.
+      "moduleResolution": "node",
+
+      // Base directory to resolve non-relative module names.
+      "baseUrl": ".",
+
+      // Mapping of module names to paths.
+      "paths": {
+          "*": ["node_modules/*", "src/types/*"]
+      },
+
+      // Allows default imports from modules with no default export.
+      "allowSyntheticDefaultImports": true,
+
+      // Skip type checking of declaration files.
+      "skipLibCheck": true,
+
+      // Enables importing JSON files as modules.
+      "resolveJsonModule": true,
+
+      // Treats each file as a separate module to ensure clean isolation.
+      "isolatedModules": true,
+
+      // Generates corresponding '.d.ts' file for each source file.
+      "declaration": true,
+
+      // Generates source maps for better debugging experience.
+      "sourceMap": true
+  },
+
+  // Specifies the files to be included in compilation.
+  "include": ["src/**/*"],
+
+  // Specifies files or directories to be excluded from compilation.
+  "exclude": ["node_modules", "**/*.test.ts"]
+}
