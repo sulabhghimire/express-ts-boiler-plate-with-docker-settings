@@ -29,3 +29,6 @@ Before you begin, ensure you have the following installed:
 
 2. To start the production mode
     docker-compose up --build -d
+
+## Notes
+1. You can keep your environmental variables in .env file
